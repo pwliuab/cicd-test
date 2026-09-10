@@ -62,7 +62,6 @@ jobs:
 
             # # Pull the new image built by GitHub runner
             # sudo docker pull ghcr.io/${{ github.repository }}:main
-
             # # Stop old container and run new one
             # sudo docker stop my-app || true
             # sudo docker rm my-app || true

@@ -59,7 +59,6 @@ jobs:
             touch "log_$(date +%Y-%m-%d_%H-%M-%S).txt"
             # # Log into GHCR on EC2 using a standard GitHub token
             # echo "${{ secrets.GITHUB_TOKEN }}" | sudo docker login ghcr.io -u ${{ github.actor }} --password-stdin
-
             # # Pull the new image built by GitHub runner
             # sudo docker pull ghcr.io/${{ github.repository }}:main
             # # Stop old container and run new one

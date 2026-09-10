@@ -17,8 +17,8 @@ FROM nginx:alpine
 # Copy built production assets from Stage 1 into Nginx public directory
 COPY --from=builder /app/build /usr/share/nginx/html
 
-# Expose port 80 for web traffic
-EXPOSE 3000
+# Nginx listens on port 80 inside the container
+EXPOSE 80
 
 # Start Nginx server
 CMD ["nginx", "-g", "daemon off;"]

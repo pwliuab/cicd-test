@@ -177,6 +177,18 @@ const projects = [
       },
     ],
   },
+  {
+    title: 'Personal Site',
+    description:
+      'The vibe-coded source code of this site, built to learn GitHub CI/CD and AWS VM hosting.',
+    stack: ['React', 'Docker', 'Nginx', 'GitHub Actions', 'AWS'],
+    links: [
+      {
+        label: 'GitHub',
+        url: 'https://github.com/pwliuab/cicd-test',
+      },
+    ],
+  },
 ];
 
 const hobbiesText =

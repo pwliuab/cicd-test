@@ -17,6 +17,7 @@ const profile = {
 
 const skills = [
   'JavaScript (ES6+)',
+  'TypeScript',
   'Node.js',
   'Java',
   'SQL',
@@ -62,6 +63,7 @@ const experience = [
     company: '友和 YOHO · Ecommerce',
     role: 'Senior Analyst Programmer',
     period: '05/2026 – 09/2026',
+    link: 'https://www.yohohongkong.com/zh-hk',
     points: [
       'Engineered complex SQL validation scripts and advanced Excel models to cross-reference transactional data, ensuring accuracy in financial reporting.',
       'Optimized generation of 1,000+ monthly reports using Node.js streaming and bulk-create/fetch techniques over datasets with millions of order records.',
@@ -72,6 +74,7 @@ const experience = [
     company: '友和 YOHO · Ecommerce',
     role: 'Senior Web Developer',
     period: '10/2023 – 05/2026',
+    link: 'https://www.yohohongkong.com/zh-hk',
     points: [
       'Optimized platform search performance by 100x by migrating the legacy MySQL backend to an Elasticsearch-driven architecture.',
       'Resolved critical N+1 query issues through optimized data fetching strategies, significantly improving API response times.',
@@ -83,6 +86,7 @@ const experience = [
     company: '友和 YOHO · Ecommerce',
     role: 'Web Developer',
     period: '09/2022 – 10/2023',
+    link: 'https://www.yohohongkong.com/zh-hk',
     points: [
       'Eliminated race conditions by implementing Redis-based distributed locking for concurrent processes.',
       'Architected and implemented a dedicated image server, reducing upload latency and improving system throughput.',
@@ -114,27 +118,71 @@ const experience = [
 
 const projects = [
   {
-    title: 'Project One',
+    title: 'Video Audio Conversion APP',
     description:
-      'A full-stack task management app with authentication, real-time updates, and a clean dashboard.',
-    stack: ['React', 'Node.js', 'MongoDB'],
-    link: 'https://github.com/your-github',
+      'An app that integrates video audio conversion, music listening, and management. Users can convert YouTube video URLs to MP3, convert local videos to MP3, and listen to them all in a single app.',
+    stack: ['React Native', 'Node.js'],
+    links: [
+      {
+        label: 'Project Documents',
+        url: 'https://drive.google.com/drive/folders/1ohUsfsbOhRzmggeDch6QdSmFcwbEDjKe?usp=sharing',
+      },
+      {
+        label: 'Demo Video',
+        url: 'https://drive.google.com/drive/folders/1BdZh55SdtzjVbYhqIj4x0dvbV1bIoVLe?usp=sharing',
+      },
+      {
+        label: 'PPT',
+        url: 'https://drive.google.com/drive/folders/1u5ilF_NPAt4zhB9dWnE4SNWoaeoAwNpM?usp=sharing',
+      },
+    ],
   },
   {
-    title: 'Project Two',
+    title: 'Data Visualization',
     description:
-      'A personal blog engine with Markdown support, SEO optimization, and a serverless backend.',
-    stack: ['Next.js', 'Vercel', 'MDX'],
-    link: 'https://github.com/your-github',
+      'An interactive data visualization project with a React frontend and a Node.js + MongoDB backend.',
+    stack: ['React.js', 'Node.js', 'MongoDB'],
+    links: [
+      {
+        label: 'GitHub',
+        url: 'https://github.com/pwliuab/HKUST-Comp4462/tree/main',
+      },
+      {
+        label: 'Demo Video',
+        url: 'https://youtu.be/rjlsdH5Zp74',
+      },
+    ],
   },
   {
-    title: 'Project Three',
+    title: 'Garbage Classification App',
     description:
-      'A command-line tool that automates code formatting and linting across monorepos.',
-    stack: ['TypeScript', 'Node.js'],
-    link: 'https://github.com/your-github',
+      'A machine learning project that classifies garbage types by taking a photo with a React Native app and sending it to a convolutional neural network model hosted on a Django server. A CNN model was built to differentiate more than 10 types of garbage, involving data collection, data cleaning, model training, model validation, and application development to raise recycling awareness among the general public.',
+    stack: ['React Native', 'Django', 'Python', 'Machine Learning'],
+    links: [
+      {
+        label: 'GitHub',
+        url: 'https://github.com/swingll/garbageProject',
+      },
+      {
+        label: 'Presentation',
+        url: 'https://docs.google.com/presentation/d/1YiJfNoZDWh7aDbfYxqdGAfIEcmZE1LKEkCP9sxXT5kk/edit#slide=id.g2cd8b7f8538_2_7',
+      },
+      {
+        label: 'Video',
+        url: 'https://youtu.be/QL43YCwUHXU',
+      },
+      {
+        label: 'Model & Dataset',
+        url: 'https://drive.google.com/drive/folders/14BvmtD3ALKbtc3rFg0XXHch0d8z-aLeP?usp=drive_link',
+      },
+    ],
   },
 ];
+
+const hobbiesText =
+  "I love Japanese culture — watching Japanese anime, eating Japanese food, and I'm currently learning Japanese.";
+
+const hobbies = ['Japanese Anime', 'Japanese Food', 'Learning Japanese'];
 
 function App() {
   return (
@@ -156,6 +204,9 @@ function App() {
             </li>
             <li>
               <a href="#projects">Projects</a>
+            </li>
+            <li>
+              <a href="#hobbies">Hobbies</a>
             </li>
           </ul>
         </div>
@@ -243,7 +294,19 @@ function App() {
                     <h3>{item.role}</h3>
                     <span className="period">{item.period}</span>
                   </div>
-                  <p className="item-sub">{item.company}</p>
+                  <p className="item-sub">
+                    {item.link ? (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {item.company}
+                      </a>
+                    ) : (
+                      item.company
+                    )}
+                  </p>
                   <ul className="points">
                     {item.points.map((point) => (
                       <li key={point}>{point}</li>
@@ -256,7 +319,7 @@ function App() {
         </section>
 
         <section id="projects" className="section">
-          <h2 className="section-title">Side Projects</h2>
+          <h2 className="section-title">Side Projects / Course Work</h2>
           <div className="projects-grid">
             {projects.map((project) => (
               <div key={project.title} className="card project-card">
@@ -269,16 +332,35 @@ function App() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-link"
-                >
-                  View Project →
-                </a>
+                <div className="project-links">
+                  {project.links.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link"
+                    >
+                      {link.label} →
+                    </a>
+                  ))}
+                </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section id="hobbies" className="section">
+          <h2 className="section-title">Hobbies</h2>
+          <div className="card">
+            <p>{hobbiesText}</p>
+            <ul className="skills">
+              {hobbies.map((hobby) => (
+                <li key={hobby} className="skill-tag">
+                  {hobby}
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
       </main>

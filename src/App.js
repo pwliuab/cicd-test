@@ -243,6 +243,13 @@ function App() {
           <a href={profile.leetcode} target="_blank" rel="noopener noreferrer">
             LeetCode
           </a>
+          <a
+            href={process.env.PUBLIC_URL + '/Paul%20CV.pdf'}
+            download="Paul_Liu_CV.pdf"
+            className="cv-button"
+          >
+            Download CV
+          </a>
         </div>
       </header>
 

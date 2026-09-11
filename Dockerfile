@@ -20,8 +20,9 @@ COPY --from=builder /app/build /usr/share/nginx/html
 # Copy custom Nginx configuration into the container
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
-# Nginx listens on port 80 inside the container
+# Nginx listens on ports 80 (HTTP) and 443 (HTTPS) inside the container
 EXPOSE 80
+EXPOSE 443
 
 # Start Nginx server
 CMD ["nginx", "-g", "daemon off;"]

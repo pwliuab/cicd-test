@@ -65,4 +65,9 @@ jobs:
             # Stop old container and run new one
             sudo docker stop my-app || true
             sudo docker rm my-app || true
-            sudo docker run -d --name my-app --restart always -p 80:80 ghcr.io/${{ github.repository }}:main
+            sudo docker run -d --name my-app --restart always \
+              -p 80:80 \
+              -p 443:443 \
+              -v /etc/ssl/certs/cloudflare_paulliu.crt:/etc/ssl/certs/cloudflare_paulliu.crt:ro \
+              -v /etc/ssl/private/cloudflare_paulliu.key:/etc/ssl/private/cloudflare_paulliu.key:ro \
+              ghcr.io/${{ github.repository }}:main
